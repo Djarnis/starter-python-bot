@@ -98,7 +98,7 @@ def process_mention(data):
         outputs.append(
             [data['channel'], "{}, {}".format(
                 random.choice(greetings),
-                data['user'],
+                repr(data['user']),
             )
         ]
     )
