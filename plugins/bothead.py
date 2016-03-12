@@ -60,7 +60,7 @@ def process_message(data):
 
     elif p_bot_joke.match(data['text']):
         outputs.append([data['channel'], "Why did the chicken cross the road?"])
-        outputs.append([data['channel'], "__waiting__", 5])
+        outputs.append([data['channel'], "__waiting__", 10])
         outputs.append([data['channel'], "__typing__", 5])
         outputs.append([data['channel'], "To escape python! :laughing:"])
 
@@ -79,10 +79,10 @@ def process_message(data):
         )
 
     elif data['text'].startswith("bothead"):
-        outputs.append([data['channel'], "__waiting__", 5])
-        outputs.append([data['channel'], "__typing__", 5])
+        outputs.append([data['channel'], "__waiting__", 2])
+        outputs.append([data['channel'], "__typing__", 1])
+        outputs.append([data['channel'], "__typing__", 1])
         outputs.append([data['channel'], "__typing__", 2])
-        outputs.append([data['channel'], "__typing__", 10])
         outputs.append([data['channel'], "{} I don't know how to: `{}`".format(
             random.choice(whatdafucks),
             data['text'],
@@ -96,12 +96,16 @@ def process_mention(data):
 
     if p_mention_hi.match(data['text']):
         outputs.append(
-            [data['channel'], "{}, {}".format(
-                random.choice(greetings),
-                repr(data['user']),
-            )
-        ]
-    )
+            [
+                data['channel'],
+                "{}, {}".format(
+                    random.choice(greetings),
+                    repr(
+                        data['user']
+                    ),
+                )
+            ]
+        )
 
     elif p_mention_joke.match(data['text']):
         outputs.append([data['channel'], "Why did the chicken cross the road?"])
