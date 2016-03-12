@@ -3,6 +3,7 @@ import re
 import random
 import logging
 crontable = []
+# crontable.append([300, "say_hello"])
 outputs = []
 attachments = []
 typing_sleep = 0
@@ -47,6 +48,10 @@ p_mention_attach = re.compile("bothead[\s]*attachment")
 p_mention_help = re.compile("bothead[\s]*help")
 
 
+def say_hello():
+    outputs.append(["C12345667", "hello world"])
+
+
 def process_message(data):
     logging.debug("process_message:data: {}".format(data))
 
@@ -64,7 +69,14 @@ def process_message(data):
         attachments.append([data['channel'], txt, build_demo_attachment(txt)])
 
     elif p_bot_help.match(data['text']):
-        outputs.append([data['channel'], "{}".format(help_text)])
+        outputs.append(
+            [
+                data['channel'],
+                "# Channel: {}".format(
+                    data['channel']
+                )
+            ]
+        )
 
     elif data['text'].startswith("bothead"):
         outputs.append([data['channel'], "__waiting__", 5])
