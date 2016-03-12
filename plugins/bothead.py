@@ -95,7 +95,13 @@ def process_mention(data):
     logging.debug("process_message:data: {}".format(data))
 
     if p_mention_hi.match(data['text']):
-        outputs.append([data['channel'], "{}".format(random.choice(greetings))])
+        outputs.append(
+            [data['channel'], "{}, {}".format(
+                random.choice(greetings),
+                data['user'],
+            )
+        ]
+    )
 
     elif p_mention_joke.match(data['text']):
         outputs.append([data['channel'], "Why did the chicken cross the road?"])
