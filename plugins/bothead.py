@@ -56,7 +56,17 @@ def process_message(data):
     logging.debug("process_message:data: {}".format(data))
 
     if p_bot_hi.match(data['text']):
-        outputs.append([data['channel'], "{}".format(random.choice(greetings))])
+        outputs.append(
+            [
+                data['channel'],
+                "{}, {}".format(
+                    random.choice(greetings),
+                    repr(
+                        data['user']
+                    ),
+                )
+            ]
+        )
 
     elif p_bot_joke.match(data['text']):
         outputs.append([data['channel'], "Why did the chicken cross the road?"])
