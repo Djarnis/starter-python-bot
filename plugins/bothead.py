@@ -55,6 +55,21 @@ p_mention_help = re.compile("bothead[\s]*help")
 
 
 def say_hello():
+
+    dt = datetime.now()
+    hour = int(dt.hour)
+
+    if hour == 5:
+        msg = "It's 6 ..."
+    elif hour == 6:
+        msg = "It's seven ;)"
+    elif hour == 7:
+        msg = "It's eight .. zzZZzzz"
+    elif hour == 8:
+        msg = "It's eight .. zzZZzzz"
+
+
+
     outputs.append(
         [
             channel_id,
