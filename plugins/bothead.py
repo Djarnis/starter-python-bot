@@ -87,7 +87,7 @@ def process_mention(data):
 
     elif p_mention_joke.match(data['text']):
         outputs.append([data['channel'], "Why did the chicken cross the road?"])
-        outputs.append([data['channel'], "__waiting__", 5])
+        # outputs.append([data['channel'], "__waiting__", 5])
         outputs.append([data['channel'], "__typing__", 5])
         outputs.append([data['channel'], "To escape python! :laughing:"])
 
@@ -99,20 +99,29 @@ def process_mention(data):
         outputs.append([data['channel'], "{}".format(help_text)])
 
     elif data['text'].startswith("bothead"):
-        outputs.append([data['channel'], "__waiting__", 5])
+        time.sleep(2)
+        # outputs.append([data['channel'], "__waiting__", 5])
         outputs.append([data['channel'], "__typing__", 5])
+        time.sleep(2)
         outputs.append([data['channel'], "__typing__", 2])
-        outputs.append([data['channel'], "__typing__", 10])
-        outputs.append([data['channel'], "{} I don't know how to: `{}`".format(
+        # outputs.append([data['channel'], "__typing__", 10])
+        outputs.append([data['channel'], "{}".format(
             random.choice(whatdafucks),
-            data['text'],
+            # data['text'],
             )])
 
     elif data['channel'].startswith("D"):  # direct message channel to the bot
-        outputs.append([data['channel'], "Hello, I'm the BeepBoop python starter bot.\n{}".format(help_text)])
+        outputs.append(
+            [
+                data['channel'],
+                "Hello, I'm bothead.\n{}".format(
+                    help_text
+                )
+            ]
+        )
 
 
-    outputs.append([data['channel'], "You really do care about me. :heart:"])
+    # outputs.append([data['channel'], "You really do care about me. :heart:"])
 
 def build_demo_attachment(txt):
     return {
