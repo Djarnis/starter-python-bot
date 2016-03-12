@@ -99,10 +99,11 @@ def process_mention(data):
         outputs.append([data['channel'], "{}".format(help_text)])
 
     elif data['text'].startswith("bothead"):
-        time.sleep(2)
-        # outputs.append([data['channel'], "__waiting__", 5])
-        outputs.append([data['channel'], "__typing__", 5])
-        time.sleep(2)
+        # time.sleep(2)
+        outputs.append([data['channel'], "__waiting__", 2])
+        outputs.append([data['channel'], "__typing__", 2])
+        # time.sleep(2)
+        outputs.append([data['channel'], "__waiting__", 2])
         outputs.append([data['channel'], "__typing__", 2])
         # outputs.append([data['channel'], "__typing__", 10])
         outputs.append([data['channel'], "{}".format(
@@ -114,14 +115,10 @@ def process_mention(data):
         outputs.append(
             [
                 data['channel'],
-                "Hello, I'm bothead.\n{}".format(
-                    help_text
-                )
+                "Hello, I'm bothead.\n{}"
             ]
         )
 
-
-    # outputs.append([data['channel'], "You really do care about me. :heart:"])
 
 def build_demo_attachment(txt):
     return {

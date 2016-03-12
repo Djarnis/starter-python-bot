@@ -81,6 +81,8 @@ class RtmBot(object):
                         logging.debug(user_typing_json)
                         self.slack_client.server.send_to_websocket(user_typing_json)
                         time.sleep(output[2])
+                    elif message.startswith("__waiting__"):
+                        time.sleep(output[2])
                     else:
                         channel.send_message("{}".format(message))
                         limiter = True
