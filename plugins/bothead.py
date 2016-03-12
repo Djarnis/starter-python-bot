@@ -3,7 +3,7 @@ import re
 import random
 import logging
 crontable = []
-# crontable.append([300, "say_hello"])
+crontable.append([300, "say_hello"])
 outputs = []
 attachments = []
 typing_sleep = 0
@@ -49,7 +49,7 @@ p_mention_help = re.compile("bothead[\s]*help")
 
 
 def say_hello():
-    outputs.append(["C12345667", "hello world"])
+    outputs.append(["C09RA5DBJ", "hello world"])
 
 
 def process_message(data):
