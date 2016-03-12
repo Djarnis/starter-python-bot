@@ -7,7 +7,7 @@ from datetime import datetime
 
 
 crontable = []
-crontable.append([300, "say_hello"])
+crontable.append([3600, "say_hello"])
 outputs = []
 attachments = []
 typing_sleep = 0
@@ -66,14 +66,45 @@ def say_hello():
     elif hour == 7:
         msg = "It's eight .. zzZZzzz"
     elif hour == 8:
-        msg = "It's eight .. zzZZzzz"
+        msg = "Time to work"
+    elif hour == 9:
+        msg = "Time for coffee"
+    elif hour == 10:
+        msg = "Time for more coffee"
+    elif hour == 11:
+        msg = "Time to eat!"
+    elif hour == 12:
+        msg = "Time to code!"
+    elif hour == 13:
+        msg = "Time cake and more coffee"
+    elif hour == 14:
+        msg = "Time to code"
+    elif hour == 15:
+        msg = "Code more!"
+    elif hour == 16:
+        msg = "Time to get home!"
+    elif hour == 17:
+        msg = "Time to eat"
+    elif hour == 18:
+        msg = "Still eating? Fat bastard"
+    elif hour == 19:
+        msg = "Time to code some more!"
+    elif hour == 20:
+        msg = "Code! Code! Code!"
+    elif hour == 21:
+        msg = "Code, test, deploy, repeat"
+    elif hour == 22:
+        msg = "Last coding for today soon!"
+    elif hour == 23:
+        msg = "Time to sleep!"
 
 
 
     outputs.append(
         [
             channel_id,
-            "hello world %s" % datetime.now()
+            msg
+            # "hello world. %s" % msg
         ]
     )
 
