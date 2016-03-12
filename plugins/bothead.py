@@ -2,11 +2,17 @@ import time
 import re
 import random
 import logging
+
+from datetime import datetime
+
+
 crontable = []
 crontable.append([300, "say_hello"])
 outputs = []
 attachments = []
 typing_sleep = 0
+
+channel_id = 'C09RA5DBJ'
 
 greetings = [
     'Yo dude!',
@@ -49,7 +55,12 @@ p_mention_help = re.compile("bothead[\s]*help")
 
 
 def say_hello():
-    outputs.append(["C09RA5DBJ", "hello world"])
+    outputs.append(
+        [
+            channel_id,
+            "hello world %s" % datetime.now()
+        ]
+    )
 
 
 def process_message(data):
